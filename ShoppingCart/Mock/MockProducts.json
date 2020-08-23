@@ -1,0 +1,68 @@
+{
+  "products" : [ {
+    "description" : " Crosshatched leather with matching trim bookstripe printed on poly twill lining style",
+    "id" : "124873",
+    "category_name" : "Suits",
+    "image_url" : "http://iosapptemplates.com/wp-content/uploads/2017/12/watch51.png",
+    "images" : [ "http://iosapptemplates.com/wp-content/uploads/2017/12/watch51.png" ],
+    "name" : "Michael Kors",
+    "price" : 199
+  }, {
+    "description" : "A collectable piece with no need for introductions, coming in new old stock condition with original case and papers.",
+    "id" : "1243376",
+    "category_name" : "Suits",
+    "image_url" : "http://iosapptemplates.com/wp-content/uploads/2017/12/cartier21.png",
+    "images" : [ "http://iosapptemplates.com/wp-content/uploads/2017/12/cartier21.png", "http://iosapptemplates.com/wp-content/uploads/2017/12/cartier22.png", "http://iosapptemplates.com/wp-content/uploads/2017/12/cartier23.png" ],
+    "name" : "Cartier",
+    "price" : 4999
+  }, {
+    "description" : " Crosshatched leather with matching trim bookstripe printed on poly twill lining style",
+    "id" : "1243",
+    "category_name" : "Suits",
+    "image_url" : "http://iosapptemplates.com/wp-content/uploads/2017/11/purse1.png",
+    "images" : [ "http://iosapptemplates.com/wp-content/uploads/2017/11/purse1.png", "http://iosapptemplates.com/wp-content/uploads/2017/11/purse11.png", "http://iosapptemplates.com/wp-content/uploads/2017/11/purse13.png" ],
+    "name" : "Kate Spade",
+    "price" : 650
+  }, {
+    "description" : "Kate Spade New York, The cameron street lottie is a dream mix of streamlined sophistication and everyday ease. Worn cross body, in the crook of your elbow or carried in hand",
+    "id" : "23176762",
+    "category_name" : "Suits",
+    "image_url" : "http://iosapptemplates.com/wp-content/uploads/2017/12/watch41.png",
+    "images" : [ "http://iosapptemplates.com/wp-content/uploads/2017/12/watch41.png", "http://iosapptemplates.com/wp-content/uploads/2017/12/watch24.png", "http://iosapptemplates.com/wp-content/uploads/2017/12/watch26.png", "http://iosapptemplates.com/wp-content/uploads/2017/11/purse44.jpeg", "http://iosapptemplates.com/wp-content/uploads/2017/12/watch23.png" ],
+    "name" : "Fossil",
+    "price" : 99
+  }, {
+    "description" : "Kate Spade New York, The cameron street lottie is a dream mix of streamlined sophistication and everyday ease. Worn cross body, in the crook of your elbow or carried in hand",
+    "id" : "231767562",
+    "category_name" : "Suits",
+    "image_url" : "http://iosapptemplates.com/wp-content/uploads/2017/12/watch21.png",
+    "images" : [ "http://iosapptemplates.com/wp-content/uploads/2017/12/watch21.png" ],
+    "name" : "Blue Fossil",
+    "price" : 89
+  }, {
+    "description" : "A collectable piece with no need for introductions, coming in new old stock condition with original case and papers.",
+    "id" : "23152",
+    "category_name" : "Suits",
+    "image_url" : "http://iosapptemplates.com/wp-content/uploads/2017/12/glasses51.png",
+    "images" : [ "http://iosapptemplates.com/wp-content/uploads/2017/12/glasses51.png" ],
+    "name" : "Red D & G",
+    "price" : 179
+  }, {
+    "description" : "There's always time for wine when you wear this gorgeous merlot leather strap timepiece from kate spade new york's Metro collection.",
+    "id" : "124533",
+    "category_name" : "Suits",
+    "image_url" : "http://iosapptemplates.com/wp-content/uploads/2017/12/watch71.png",
+    "images" : [ "http://iosapptemplates.com/wp-content/uploads/2017/12/watch71.png", "http://iosapptemplates.com/wp-content/uploads/2017/12/watch72.png", "http://iosapptemplates.com/wp-content/uploads/2017/12/watch75.png", "http://iosapptemplates.com/wp-content/uploads/2017/12/watch76.png", "http://iosapptemplates.com/wp-content/uploads/2017/12/watch77.png" ],
+    "name" : "Kate Spade",
+    "price" : 299
+  }, {
+    "category_image_url" : "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-dresses-shopping-category.png",
+    "category_name" : "Suits",
+    "description" : "This is the description of the suit",
+    "id" : "123",
+    "image_url" : "http://iosapptemplates.com/wp-content/uploads/2017/02/executivesuits.jpeg",
+    "images" : [ "http://iosapptemplates.com/wp-content/uploads/2017/03/dress-6.jpeg", "http://iosapptemplates.com/wp-content/uploads/2017/03/dress11.jpg" ],
+    "name" : "Armani 8",
+    "price" : 215
+  }]
+}
