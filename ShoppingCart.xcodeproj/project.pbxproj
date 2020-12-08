@@ -55,6 +55,7 @@
 		5B519D4B24FAFB3500E95386 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B519D4A24FAFB3500E95386 /* CartView.swift */; };
 		5B519D4D24FAFB4700E95386 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B519D4C24FAFB4700E95386 /* CartViewModel.swift */; };
 		5B519D4F24FB038200E95386 /* CartItemsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B519D4E24FB038200E95386 /* CartItemsCard.swift */; };
+		5B98F2A8257F0E2B0084BF1A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B98F2A7257F0E2B0084BF1A /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		5B519D4A24FAFB3500E95386 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		5B519D4C24FAFB4700E95386 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		5B519D4E24FB038200E95386 /* CartItemsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemsCard.swift; sourceTree = "<group>"; };
+		5B98F2A7257F0E2B0084BF1A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6F22DD4F745F2CA2CC4CAB71 /* Pods-ShoppingCartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCartTests.release.xcconfig"; path = "Target Support Files/Pods-ShoppingCartTests/Pods-ShoppingCartTests.release.xcconfig"; sourceTree = "<group>"; };
 		A50AA57B72BBF34470DEBC4F /* Pods-ShoppingCart-ShoppingCartUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCart-ShoppingCartUITests.release.xcconfig"; path = "Target Support Files/Pods-ShoppingCart-ShoppingCartUITests/Pods-ShoppingCart-ShoppingCartUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A86E87918E431A04420B7F80 /* Pods-ShoppingCart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCart.debug.xcconfig"; path = "Target Support Files/Pods-ShoppingCart/Pods-ShoppingCart.debug.xcconfig"; sourceTree = "<group>"; };
@@ -218,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				5B19F6DF24F3226F00CE483D /* Library */,
-				5B19F6D524F3213100CE483D /* Localizable.strings */,
 				5B1D734724CCFF6000429AD1 /* Session */,
 				5B1D733E24CCFDD500429AD1 /* Extensions */,
 				5B1D732B24CCE4E500429AD1 /* Modules */,
@@ -228,6 +229,8 @@
 				5B1D72E824CCA22200429AD1 /* AppDelegate.swift */,
 				5B1D734A24CD1EFD00429AD1 /* RootView.swift */,
 				5B1D72EA24CCA22200429AD1 /* SceneDelegate.swift */,
+				5B19F6D524F3213100CE483D /* Localizable.strings */,
+				5B98F2A7257F0E2B0084BF1A /* GoogleService-Info.plist */,
 				5B1D72EE24CCA22500429AD1 /* Assets.xcassets */,
 				5B1D72F324CCA22500429AD1 /* LaunchScreen.storyboard */,
 				5B1D72F624CCA22500429AD1 /* Info.plist */,
@@ -490,6 +493,7 @@
 				5B1D72F524CCA22500429AD1 /* LaunchScreen.storyboard in Resources */,
 				5B1D72F224CCA22500429AD1 /* Preview Assets.xcassets in Resources */,
 				5B1D72EF24CCA22500429AD1 /* Assets.xcassets in Resources */,
+				5B98F2A8257F0E2B0084BF1A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
