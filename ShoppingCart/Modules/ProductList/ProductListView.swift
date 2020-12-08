@@ -65,8 +65,7 @@ struct ProductListView: View {
             }
             .background(Color("BG"))
             .padding(.vertical)
-            .navigationBarTitle("Product List")
-            .edgesIgnoringSafeArea(.bottom)
+            .navigationBarTitle("Product List", displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 self.session.signout()
             }) {

@@ -12,26 +12,30 @@ struct ProductDetailView: View {
     @ObservedObject var viewModel: ProductDetailViewModel
     @Environment(\.imageCache) var cache: ImageCache
     var body: some View {
-        ScrollView(.vertical) {
-            VStack(spacing: 10) {
-                Spacer()
-                HStack {
+        VStack {
+            ScrollView(.vertical) {
+                VStack(spacing: 10) {
                     Spacer()
-                    getImageURL()
-                        .frame(height: 150)
+                    HStack {
+                        Spacer()
+                        getImageURL()
+                            .frame(height: 150)
+                        Spacer()
+                    }
                     Spacer()
+                    productDetails
+                        .frame(width: 300.0, height: 100)
+                        .position(x: 70, y: 40)
                 }
-                Spacer()
-                productDetails
-                    .frame(width: 300.0, height: 100)
-                    .position(x: 70, y: 40)
-            }
-            .background(Color.white)
-            .padding(2)
-            productTypeListView
                 .background(Color.white)
-         }
+                .padding(2)
+                productTypeListView
+                    .background(Color.white)
+             }
+        }
         .background(Color("BG"))
+        .navigationBarTitle(viewModel.product.categoryName)
+        .edgesIgnoringSafeArea(.bottom)
         buttonView
     }
     

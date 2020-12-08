@@ -11,7 +11,6 @@
 		105D20B4F8C9DC6A58CB1588 /* Pods_ShoppingCart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFB0DF6528D32E44951FD4B /* Pods_ShoppingCart.framework */; };
 		1F5670ECF8028C8ABD095DAA /* Pods_ShoppingCart_ShoppingCartUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B859F8800C509B24BBDAD43D /* Pods_ShoppingCart_ShoppingCartUITests.framework */; };
 		5B0C536D2504907500D585BC /* BaseStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0C536C2504907500D585BC /* BaseStyle.swift */; };
-		5B0C536F2504999000D585BC /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0C536E2504999000D585BC /* TestView.swift */; };
 		5B19F6D024F2E2E700CE483D /* CustomCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B19F6CF24F2E2E700CE483D /* CustomCorner.swift */; };
 		5B19F6D324F3213100CE483D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B19F6D524F3213100CE483D /* Localizable.strings */; };
 		5B19F6D824F321DC00CE483D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B19F6D724F321DC00CE483D /* WebViewController.swift */; };
@@ -80,7 +79,6 @@
 		53F36C1B2A15625282A55BCD /* Pods-ShoppingCart-ShoppingCartUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCart-ShoppingCartUITests.debug.xcconfig"; path = "Target Support Files/Pods-ShoppingCart-ShoppingCartUITests/Pods-ShoppingCart-ShoppingCartUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		58E9031F395909244AF351D0 /* Pods-ShoppingCartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCartTests.debug.xcconfig"; path = "Target Support Files/Pods-ShoppingCartTests/Pods-ShoppingCartTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B0C536C2504907500D585BC /* BaseStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStyle.swift; sourceTree = "<group>"; };
-		5B0C536E2504999000D585BC /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		5B19F6CF24F2E2E700CE483D /* CustomCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorner.swift; sourceTree = "<group>"; };
 		5B19F6D424F3213100CE483D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5B19F6D624F3215500CE483D /* ml */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ml; path = ml.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -309,7 +307,6 @@
 			children = (
 				5B1D732D24CCE90600429AD1 /* ProductCard.swift */,
 				5B1D732F24CCEA5B00429AD1 /* ProductListView.swift */,
-				5B0C536E2504999000D585BC /* TestView.swift */,
 				5B1D733124CCEA7100429AD1 /* ProductListViewModel.swift */,
 			);
 			path = ProductList;
@@ -651,7 +648,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B19F6DA24F3222B00CE483D /* Window+Extension.swift in Sources */,
-				5B0C536F2504999000D585BC /* TestView.swift in Sources */,
 				5B1D733924CCFD0E00429AD1 /* User.swift in Sources */,
 				5B19F6D824F321DC00CE483D /* WebViewController.swift in Sources */,
 				5B19F6E424F3226F00CE483D /* CloseButton.swift in Sources */,
