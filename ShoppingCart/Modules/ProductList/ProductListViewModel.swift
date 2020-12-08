@@ -12,7 +12,7 @@ class ProductListViewModel: ObservableObject {
     @Published var products: [Product] = []
     @Published var categories = [String]()
     @Published var cart: Cart?
-    @Published var service: ProductServiceType
+    var service: ProductServiceType
 
     init(service: ProductServiceType) {
         self.service = service
@@ -34,5 +34,5 @@ class ProductListViewModel: ObservableObject {
     
     func addToCart(product: Product) {
         service.addToCart(product: product)
-    }    
+    }
 }

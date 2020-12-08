@@ -17,7 +17,7 @@ struct CartView: View {
         if let cart = viewModel.cart, !cart.items.isEmpty {
             
             Text("My Cart")
-                .font(.largeTitle)
+                .font(.system(size: 18, weight: .bold, design: .rounded))
                 .foregroundColor(Color.black)
                 .shadow(radius: 10.0, x: 20, y: 10)
             List {
@@ -27,15 +27,17 @@ struct CartView: View {
                 }
                 .onDelete(perform: delete)
             }
+            .background(Color.white.cornerRadius(25))
+            .shadow(radius: 10.0, x: 20, y: 10)
+            .padding(5)
             Text("SubTotal(\(cart.itemCount) items): \(cart.total)")
-                //.font(.title2)
-                .fontWeight(.bold)
+                .font(.system(size: 18, weight: .bold, design: .rounded))
                 .foregroundColor(Color.black)
                 .shadow(radius: 10.0, x: 20, y: 10)
             buttonView
         } else {
             Text("No item Available.")
-                .font(.largeTitle)
+                .font(.system(size: 24, weight: .bold, design: .rounded))
                 .foregroundColor(Color.black)
                 .shadow(radius: 10.0, x: 20, y: 10)
         }

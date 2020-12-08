@@ -78,7 +78,7 @@ struct ProductListView: View {
     
     @ViewBuilder
     var productList: some View {
-        VStack(spacing: 105) {
+        VStack {
             ScrollView(.vertical, showsIndicators: false) {
                 ForEach(viewModel.products) { product in
                     ProductCard(product: product, viewModel: viewModel)

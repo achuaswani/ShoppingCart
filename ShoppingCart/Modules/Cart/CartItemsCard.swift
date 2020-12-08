@@ -16,20 +16,21 @@ struct CartItemsCard: View {
     
     @ViewBuilder
     var body: some View {
-        HStack() {
+        HStack {
             getImageURL().frame(height: 100)
-            VStack() {
+            VStack {
                 Text(item.product.name)
-                    //.font(.title3)
+                    .font(.system(size: 24, weight: .bold, design: .rounded))
                     .fontWeight(.bold)
                     .foregroundColor(.black)
                 Text("Price: \(item.product.price)")
-                    .font(.subheadline)
+                    .font(.system(size: 18, weight: .bold, design: .rounded))
                     .foregroundColor(Color.black)
                     .multilineTextAlignment(.trailing)
             }
             Spacer()
             Text("Units: ")
+                .font(.system(size: 24, weight: .bold, design: .rounded))
             Button(action: addItemUnit) {
                 
                 Image(systemName: "plus")
@@ -37,7 +38,7 @@ struct CartItemsCard: View {
             }
             
             Text("\(item.units)")
-                .font(.title)
+                .font(.system(size: 24, weight: .bold, design: .rounded))
                 .fontWeight(.bold)
             
             Button(action: removeItemUnit) {

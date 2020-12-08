@@ -56,6 +56,7 @@
 		5B519D4D24FAFB4700E95386 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B519D4C24FAFB4700E95386 /* CartViewModel.swift */; };
 		5B519D4F24FB038200E95386 /* CartItemsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B519D4E24FB038200E95386 /* CartItemsCard.swift */; };
 		5B98F2A8257F0E2B0084BF1A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B98F2A7257F0E2B0084BF1A /* GoogleService-Info.plist */; };
+		5B98F2CC257F4F9D0084BF1A /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98F2CB257F4F9D0084BF1A /* ProductDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		5B519D4C24FAFB4700E95386 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		5B519D4E24FB038200E95386 /* CartItemsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemsCard.swift; sourceTree = "<group>"; };
 		5B98F2A7257F0E2B0084BF1A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5B98F2CB257F4F9D0084BF1A /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		6F22DD4F745F2CA2CC4CAB71 /* Pods-ShoppingCartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCartTests.release.xcconfig"; path = "Target Support Files/Pods-ShoppingCartTests/Pods-ShoppingCartTests.release.xcconfig"; sourceTree = "<group>"; };
 		A50AA57B72BBF34470DEBC4F /* Pods-ShoppingCart-ShoppingCartUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCart-ShoppingCartUITests.release.xcconfig"; path = "Target Support Files/Pods-ShoppingCart-ShoppingCartUITests/Pods-ShoppingCart-ShoppingCartUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A86E87918E431A04420B7F80 /* Pods-ShoppingCart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCart.debug.xcconfig"; path = "Target Support Files/Pods-ShoppingCart/Pods-ShoppingCart.debug.xcconfig"; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 		5B1D732B24CCE4E500429AD1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5B98F2CA257F4F810084BF1A /* ProductDetails */,
 				5B519D4924FAFB1B00E95386 /* Cart */,
 				5B1D733B24CCFD8C00429AD1 /* Signup */,
 				5B1D733A24CCFD8600429AD1 /* Signin */,
@@ -312,7 +315,6 @@
 		5B1D732C24CCE4EB00429AD1 /* ProductList */ = {
 			isa = PBXGroup;
 			children = (
-				5B1D733624CCED1300429AD1 /* ProductDetailView.swift */,
 				5B1D732D24CCE90600429AD1 /* ProductCard.swift */,
 				5B1D732F24CCEA5B00429AD1 /* ProductListView.swift */,
 				5B0C536E2504999000D585BC /* TestView.swift */,
@@ -365,6 +367,15 @@
 				5B519D4E24FB038200E95386 /* CartItemsCard.swift */,
 			);
 			path = Cart;
+			sourceTree = "<group>";
+		};
+		5B98F2CA257F4F810084BF1A /* ProductDetails */ = {
+			isa = PBXGroup;
+			children = (
+				5B1D733624CCED1300429AD1 /* ProductDetailView.swift */,
+				5B98F2CB257F4F9D0084BF1A /* ProductDetailViewModel.swift */,
+			);
+			path = ProductDetails;
 			sourceTree = "<group>";
 		};
 		89B9CCC3F8C664337EAAA64D /* Frameworks */ = {
@@ -651,6 +662,7 @@
 				5B519D4D24FAFB4700E95386 /* CartViewModel.swift in Sources */,
 				5B519D4B24FAFB3500E95386 /* CartView.swift in Sources */,
 				5B19F6E324F3226F00CE483D /* DisplayPicture.swift in Sources */,
+				5B98F2CC257F4F9D0084BF1A /* ProductDetailViewModel.swift in Sources */,
 				5B1D735924D0CA9700429AD1 /* ImageLoader.swift in Sources */,
 				5B1D734B24CD1EFD00429AD1 /* RootView.swift in Sources */,
 				5B19F6DE24F3224F00CE483D /* View+Extension.swift in Sources */,
