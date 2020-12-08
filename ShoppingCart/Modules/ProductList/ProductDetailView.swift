@@ -13,19 +13,24 @@ struct ProductDetailView: View {
     var viewModel: ProductListViewModel
     @Environment(\.imageCache) var cache: ImageCache
     var body: some View {
-        VStack() {
-            Spacer()
-            HStack {
+        ScrollView(.vertical) {
+            VStack() {
                 Spacer()
-                getImageURL()
-                    .frame(height: 300)
+                HStack {
+                    Spacer()
+                    getImageURL()
+                        .frame(height: 150)
+                    Spacer()
+                }
                 Spacer()
+                productDetails
+                    .frame(width: 300.0, height: 100)
+                    .position(x: 70, y: 40)
+                                    
             }
-            Spacer()
-            productDetails
+            .background(Color.white.cornerRadius(25))
+            .shadow(radius: 10.0, x: 20, y: 10)
          }
-        .background(Color("BG"))
-        .padding(.vertical)
         buttonView
     }
     
@@ -40,19 +45,21 @@ struct ProductDetailView: View {
     }
     
     var productDetails: some View {
-           VStack(alignment: .trailing, spacing: 0.0) {
-            Text(product.name).font(.headline).foregroundColor(Color.black).multilineTextAlignment(.center)
+           VStack(alignment: .leading) {
+               Text("Rs."+String(product.price))
+                .font(.system(size: 24, weight: .bold, design: .rounded))
+                .foregroundColor(Color.black)
+                .multilineTextAlignment(.leading)
+            
+               Text(product.name)
+                .font(.system(size: 18, weight: .bold, design: .rounded))
+                .foregroundColor(Color.black)
+                .multilineTextAlignment(.leading)
                    
                Text(product.category_name)
-                   .font(.subheadline)
-                   .foregroundColor(Color.black)
-                .multilineTextAlignment(.center)
-               Spacer().frame(height: 20)
-
-               Text("Rs."+String(product.price))
-                   .font(.subheadline)
-                   .foregroundColor(Color.black)
-                .multilineTextAlignment(.center)
+                .font(.system(size: 16, weight: .light, design: .rounded))
+                .foregroundColor(Color.black)
+                .multilineTextAlignment(.leading)
            }
        }
     
