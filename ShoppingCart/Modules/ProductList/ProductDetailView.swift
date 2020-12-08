@@ -10,27 +10,31 @@ import SwiftUI
 
 struct ProductDetailView: View {
     var product: Product
+    var viewModel: ProductListViewModel
+    @Environment(\.imageCache) var cache: ImageCache
     var body: some View {
-        VStack{
+        VStack() {
+            Spacer()
             HStack {
                 Spacer()
                 getImageURL()
+                    .frame(height: 300)
                 Spacer()
             }
+            Spacer()
             productDetails
          }
-        .frame(minWidth: 0,
-        maxWidth: .infinity,
-        minHeight: 0,
-        maxHeight: .infinity,
-        alignment: .topLeading)
+        .background(Color("BG"))
+        .padding(.vertical)
+        buttonView
     }
     
     func getImageURL() -> AnyView {
         return  AnyView(AsyncImage(
-                       urlString: product.imageURL,
-                       placeholder: Image("noImage")
-                        .padding()
+                       urlString: product.image_url,
+                       placeholder: Image("noImage"),
+                       cache: self.cache,
+                       configuration: { $0.resizable() }
                    )
             .aspectRatio(contentMode: .fit))
     }
@@ -39,7 +43,7 @@ struct ProductDetailView: View {
            VStack(alignment: .trailing, spacing: 0.0) {
             Text(product.name).font(.headline).foregroundColor(Color.black).multilineTextAlignment(.center)
                    
-               Text(product.categoryName)
+               Text(product.category_name)
                    .font(.subheadline)
                    .foregroundColor(Color.black)
                 .multilineTextAlignment(.center)
@@ -50,28 +54,27 @@ struct ProductDetailView: View {
                    .foregroundColor(Color.black)
                 .multilineTextAlignment(.center)
            }
-           .frame(maxWidth: .infinity)
        }
-}
-
-extension ProductDetailView {
     
+    var buttonView: some View {
+        VStack {
+            Button(action: addToCart) {
+                Text("Add to cart")
+            }.padding(.top, 50)
+            .buttonStyle(PrimaryButton())
+        }
+    }
+    
+    func addToCart() {
+        viewModel.addToCart(product: product)
+    }
 }
 
 #if DEBUG
 struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        let productDict: [String : Any] = [
-            "id": "String",
-            "name": "Name ",
-            "price": 1.2,
-            "image_url": "String",
-            "description": "String",
-            "category_name" : "Category",
-            "images": ["String"],
-            "isAvailable": false
-            ]
-        return ProductDetailView(product: Product(productDict: productDict)!)
+        let viewModel = ProductListViewModel(service:ProductService())
+        return ProductDetailView(product: Product.default, viewModel: viewModel)
     }
 }
 #endif

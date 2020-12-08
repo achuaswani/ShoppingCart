@@ -66,12 +66,14 @@ private extension SigninView {
           
           TextField("Email", text: self.$email)
             .padding()
-            .background(Color.themeTextField)
+            .foregroundColor(Color.black)
+            .background(Color.normalTextField)
             .cornerRadius(20.0)
                         
           SecureField("Password", text: self.$password)
             .padding()
-            .background(Color.themeTextField)
+            .foregroundColor(Color.black)
+            .background(Color.normalTextField)
             .cornerRadius(20.0)
         }.padding([.leading, .trailing], 27.5)
     }
@@ -80,13 +82,14 @@ private extension SigninView {
         VStack {
             Button(action: signin) {
                 Text("Sign In")
+                    .buttonStyle(PrimaryButton())
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
                     .frame(width: 300, height: 50)
-                    .background(Color.green)
+                    .background(Color.normalButton)
                     .cornerRadius(15.0)
-                    .shadow(radius: 10.0, x: 20, y: 10)
+                    .shadow(radius: 10.0, x: 5, y: 5)
             }.padding(.top, 50)
         }
     }

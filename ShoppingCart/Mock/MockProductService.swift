@@ -11,7 +11,7 @@ import Foundation
 class MockProductService: ProductServiceType {
     var loading: Bool = false
     
-    var products: [Product] = []
+    var products: [Product] = [Product.default]
     
     var cart = Cart(items: [], itemCount: 0, total: 0)
     var ref = MockDatabaseReference().child("products")
@@ -19,17 +19,11 @@ class MockProductService: ProductServiceType {
         completionHandler(products)
     }
     
-    func productDetails(productId: String) -> Product {
-        let details = products.first{ $0.id == productId }
-        return details!
-    }
-    
     func numberOfCartItems() -> Int {
         return cart.itemCount
     }
     
-    func addToCart(productId: String) {
-        guard let product = (products.first{ $0.id == productId }) else { return }
+    func addToCart(product: Product) {
         cart.itemCount += 1
         cart.total += product.price
         updateItemCart(product: product)
@@ -41,11 +35,6 @@ class MockProductService: ProductServiceType {
     }
     
     func checkout() {
-        for item in cart.items {
-            if !productAvailable(id: item.id) {
-                continue
-            }
-        }
         cart = Cart(items: [], itemCount: 0, total: 0)
     }
     
@@ -54,7 +43,17 @@ class MockProductService: ProductServiceType {
         cart.items.append(item)
     }
     
-    func productAvailable(id: String) -> Bool {
-        return true
+    func itemExists(id:String) -> Int? {
+        return cart.items.firstIndex(where: { $0.id == id })
+    }
+    
+    func addItemUnit( id: String) {
+        guard let index = itemExists(id: id) else { return }
+        cart.items[index].units += 1
+    }
+    
+    func removeItemUnit( id: String) {
+        guard let index = itemExists(id: id) else { return }
+        cart.items[index].units += 1
     }
 }

@@ -1,0 +1,50 @@
+/*
+  Localizable.strings
+  GiftHunter
+
+  Created by Aswani G on 5/7/20.
+  Copyright © 2020 RAS. All rights reserved.
+*/
+//Create localizable without storyboards https://medium.com/@Yerazhas/string-localization-in-swift-without-storyboards-e243e5a64f58
+//Login Screen
+"login.label.header.title" = "Login to access your account";
+"login.textfield.password.title" = "Enter password";
+"login.textfield.emailid.title" = "Enter email id";
+"login.label.generic.error.message" = "All fields are mandatory.";
+"login.label.email.validation.error.message" = "Enter valid email.";
+"login.label.password.validation.error.message" = "Enter valid password.";
+"login.label.password.min.error.message" = "Password should be atleast 8 characters.";
+"login.label.invalid.error.message" = "Email or Password is not correct. Please check and try again.";
+"login.button.login.title" = "Login";
+"login.button.register.title" = "Register";
+
+//register
+"register.label.header.title" = "Register new account";
+"register.textfield.confirm.password.title" = "Confirm password";
+"register.label.confirm.password.error.message" = "Password not matching.";
+"register.label.backend.error.message" = "Some went worng. Please try after sometime.";
+"register.textfield.username.title" = "Enter user name";
+
+//Dashboard
+"dashboard.header.welcome.title" = "Welcome";
+
+//Settings
+"settings.list.item.logout" = "Logout";
+"settings.list.item.profile" = "Profile";
+"settings.list.item.about" = "About";
+
+//profile
+"profile.button.update.user.name.title" = "Reset User Name";
+"profile.label.reset.emailid.title" = "Reset email id";
+"profile.label.reset.password.title" = "Reset password";
+"profile.textfield.current.password.title" = "Enter current password";
+"profile.textfield.new.password.title" = "Enter new password";
+"profile.button.update.display.name.title" = "Update display name";
+"profile.button.update.email.id.title" = "Update email id";
+"profile.button.update.password.title" = "Update password";
+"profile.label.password.validation.error.message" = "Incorrect Password";
+"profile.label.password.same.error.message" = "No change in password";
+
+"toast.message.success.title" = "Saved!";
+"toast.message.failure.title" = "Error!";
+

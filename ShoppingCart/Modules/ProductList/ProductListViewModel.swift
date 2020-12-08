@@ -10,7 +10,9 @@ import Foundation
 
 class ProductListViewModel: ObservableObject {
     @Published var products: [Product] = []
-    private var service: ProductServiceType
+    @Published var categories = [String]()
+    @Published var cart: Cart?
+    @Published var service: ProductServiceType
 
     init(service: ProductServiceType) {
         self.service = service
@@ -18,8 +20,19 @@ class ProductListViewModel: ObservableObject {
     }
     
     func loadProducts() {
-        self.service.productList() { products in
-            self.products = products
+        self.service.productList() { items in
+            self.products = items
+            self.getCategories()
         }
     }
+    
+    func getCategories() {
+        for product in products where !categories.contains(product.category_name) {
+            categories.append(product.category_name)
+        }
+    }
+    
+    func addToCart(product: Product) {
+        service.addToCart(product: product)
+    }    
 }

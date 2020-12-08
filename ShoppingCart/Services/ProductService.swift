@@ -8,49 +8,44 @@
 
 import Foundation
 import FirebaseDatabase
+import CodableFirebase
 
 protocol ProductServiceType {
     var products: [Product] { get }
     var loading: Bool { get }
-    func productList(completionHandler: @escaping ([Product]) -> Void)    
-    func productDetails(productId: String) -> Product
+    func productList(completionHandler: @escaping ([Product]) -> Void)
     func numberOfCartItems() -> Int
-    
+    func addToCart(product: Product)
     func cartItems() -> Cart
     func checkout()
+    func addItemUnit(id: String)
+    func removeItemUnit(id: String)
 }
 
 class ProductService: ProductServiceType {
-    
-    @Published var products: [Product] = []
+    @Published var products: [Product] = [Product.default]
     @Published var loading = false
     
     var cart = Cart(items: [], itemCount: 0, total: 0)
     var ref: DatabaseReference = Database.database().reference().child("products")
+    
     func productList(completionHandler: @escaping ([Product]) -> Void) {
-        ref.observe(DataEventType.value) { (snapshot) in
-            self.products = []
-            for child in snapshot.children {
-                if let snapshot = child as? DataSnapshot,
-                    let product = Product(snapshot: snapshot) {
-                    self.products.append(product)
-                }
+        ref.observeSingleEvent(of: .value, with: { [weak self]  snapshot in
+            guard let items = snapshot.value, let self = self else { return }
+            do {
+                self.products = try FirebaseDecoder().decode([Product].self, from: items)
+            } catch let error {
+                debugPrint(error.localizedDescription)
             }
             completionHandler(self.products)
-        }
-    }
-    
-    func productDetails(productId: String) -> Product {
-        let details = products.first{ $0.id == productId }
-        return details!
+        })
     }
     
     func numberOfCartItems() -> Int {
         return cart.itemCount
     }
     
-    func addToCart(productId: String) {
-        guard let product = (products.first{ $0.id == productId }) else { return }
+    func addToCart(product: Product) {
         cart.itemCount += 1
         cart.total += product.price
         updateItemCart(product: product)
@@ -62,24 +57,30 @@ class ProductService: ProductServiceType {
     }
     
     func checkout() {
-        let cartItems = cart.items
-        for index in 0..<cartItems.count {
-            if !productAvailable(id: cartItems[index].id) {
-                cart.items.remove(at: index)
-                continue
-            }
-        }
         cart = Cart(items: [], itemCount: 0, total: 0)
     }
     
     func updateItemCart(product: Product) {
-        let item = Item(id: "1", product: product, units: 1)
-        cart.items.append(item)
+        guard let index = itemExists(id:product.id) else {
+            let item = Item(id: product.id, product: product, units: 1)
+            cart.items.append(item)
+            return
+        }
+        cart.items[index].units += 1
+    }
+    func itemExists(id:String) -> Int? {
+        return cart.items.firstIndex(where: { $0.id == id })
+    }
+    func addItemUnit( id: String) {
+        guard let index = itemExists(id: id) else { return }
+        cart.items[index].units += 1
     }
     
-    func productAvailable(id: String) -> Bool {
-        return true
+    func removeItemUnit( id: String) {
+        guard let index = itemExists(id: id) else { return }
+        cart.items[index].units -= 1
     }
+    
     func uploadProduct(product: Product) {
         //Generates number going up as time goes on, sets order of TODO's by how old they are.
         let number = Int(Date.timeIntervalSinceReferenceDate * 1000)

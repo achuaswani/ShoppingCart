@@ -12,9 +12,6 @@ import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
@@ -35,37 +32,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
 }
-
-#if DEBUG
-extension UIWindow {
-    override open func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        #if !Production
-        if motion == .motionShake {
-            let ac = UIAlertController(title: "Tools", message: nil, preferredStyle: .actionSheet)
-            ac.addAction(
-                UIAlertAction(
-                    title:"Mock Crash",
-                    style: .default,
-                    handler: { _ in
-                        Crashlytics.crashlytics().setUserID("user_id")
-                        fatalError()
-                    }
-                )
-            )
-            rootViewController?.present(ac, animated: true, completion: {
-                ac.view.superview?.isUserInteractionEnabled = true
-                ac.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissOnTapOutside)))
-            })
-        }
-        #endif
-    }
-    
-    @objc private func dismissOnTapOutside()
-    {
-       rootViewController?.dismiss(animated: true, completion: nil)
-    }
-}
-#endif

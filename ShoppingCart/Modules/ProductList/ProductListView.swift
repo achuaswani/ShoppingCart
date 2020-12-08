@@ -13,6 +13,10 @@ struct ProductListView: View {
     @ObservedObject
     var viewModel: ProductListViewModel
     var session = FirebaseSession()
+    @State var show = false
+    @State var selected: Product?
+    @State var search = ""
+    @State var selectedMenu = "All"
     
     init(viewModel: ProductListViewModel) {
         self.viewModel = viewModel
@@ -30,19 +34,81 @@ struct ProductListView: View {
     
     var body: some View {
         NavigationView {
-            List(viewModel.products) { product in
-                    ProductRow(product: product)
+            VStack {
+                HStack(spacing: 15) {
+                    Image(systemName: "magnifyingglass")
+                        //.font(.title2)
+                        .foregroundColor(.white)
+                    
+                    TextField("Search", text: $search)
+                }
+                .padding()
+                .background(Color("search"))
+                .cornerRadius(15)
+                .padding()
+                NavigationLink(destination:
+                                CartView(viewModel: CartViewModel(service: viewModel.service))) {
+                    Text("View Cart")
+                        .foregroundColor(.black)
+                }
+                HStack(spacing: 10) {
+                    ForEach(viewModel.categories,id: \.self) { title in
+                        MenuButton(title: title, selected: $selectedMenu)
+                        // giving space for all expect for last...
+                        if title != viewModel.categories.last {
+                            Spacer(minLength: 0)
+                        }
+                    }
+                }
+                .padding()
+                productList
+            }
+            .background(Color("BG"))
+            .padding(.vertical)
+            .navigationBarTitle("Product List")
+            .edgesIgnoringSafeArea(.bottom)
+            .navigationBarItems(trailing: Button(action: {
+                self.session.signout()
+            }) {
+                Text("Logout")
+            })
+        }
+    
+    }
+    
+    @ViewBuilder
+    var productList: some View {
+        VStack(spacing: 105) {
+            ScrollView(.vertical, showsIndicators: false) {
+                ForEach(viewModel.products) { product in
+                    ProductCard(product: product, viewModel: viewModel)
+                        .shadow(color: Color.black.opacity(0.16), radius: 5, x: 0, y: 5)
                 }
                 .onAppear {
-                        self.viewModel.loadProducts()
-                    }
-                .navigationBarTitle("Product List")
-                .navigationBarItems(trailing: Button(action: {
-                    self.session.signout()
-                }) {
-                    Text("Logout")
-                })
+                    self.viewModel.loadProducts()
+                }
             }
+            .contentShape(Rectangle())
+        }
+        .padding(.horizontal,22)
+    }
+    struct MenuButton : View {
+        
+        var title : String
+        @Binding var selected : String
+        
+        var body: some View{
+            
+            Button(action: {selected = title}) {
+                Text(title)
+                    .font(.system(size: 15))
+                    .fontWeight(selected == title ? .bold : .none)
+                    .padding(.vertical,10)
+                    .padding(.horizontal,20)
+                    .background(Color("search").opacity(selected == title ? 1 : 0))
+                    .cornerRadius(10)
+            }
+        }
     }
 }
 

@@ -13,12 +13,11 @@ import Combine
 struct AsyncImage<Placeholder: View>: View {
     @ObservedObject private var loader: ImageLoader
     private let placeholder: Placeholder?
-    
-    init(urlString: String, placeholder: Placeholder? = nil) {
+    private let configuration: (Image) -> Image
+    init(urlString: String, placeholder: Placeholder? = nil,  cache: ImageCache? = nil, configuration: @escaping (Image) -> Image = { $0 }) {
         self.placeholder = placeholder
-
-        loader = ImageLoader(urlString: urlString)
-    
+        loader = ImageLoader(urlString: urlString, cache: cache)
+        self.configuration = configuration
     }
     
     var body: some View {
@@ -30,8 +29,7 @@ struct AsyncImage<Placeholder: View>: View {
     private var image: some View {
         Group {
             if loader.image != nil {
-                Image(uiImage: loader.image!)
-                    .resizable()
+                configuration(Image(uiImage: loader.image!))
             } else {
                 placeholder
             }

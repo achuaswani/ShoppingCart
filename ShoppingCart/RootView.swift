@@ -16,6 +16,7 @@ struct RootView: View {
         NavigationView {
             VStack {
                 if session.user != nil {
+                    //TestView()
                     ProductListView(viewModel: ProductListViewModel(service: ProductService()))
                 } else {
                     SigninView()

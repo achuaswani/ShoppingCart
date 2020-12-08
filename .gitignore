@@ -14,4 +14,7 @@ Podfile.lock
 # iTunes connect packages
 Package.itmsp
 
+# app key
+GoogleService-Info.plist
+
 .build
