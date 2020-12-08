@@ -15,7 +15,7 @@ protocol ProductServiceType {
     var loading: Bool { get }
     func productList(completionHandler: @escaping ([Product]) -> Void)
     func numberOfCartItems() -> Int
-    func addToCart(product: Product)
+    func addProductToCart(_ product: Product, units: Int)
     func cartItems() -> Cart
     func checkout()
     func addItemUnit(id: String)
@@ -45,11 +45,15 @@ class ProductService: ProductServiceType {
         return cart.itemCount
     }
     
-    func addToCart(product: Product) {
-        cart.itemCount += 1
+    func addProductToCart(_ product: Product, units: Int) {
+        cart.itemCount += units
         cart.total += product.price
-        updateItemCart(product: product)
-        
+        guard let index = itemExists(id:product.id) else {
+            let item = Item(id: product.id, product: product, units: units)
+            cart.items.append(item)
+            return
+        }
+        cart.items[index].units += units
     }
     
     func cartItems() -> Cart {
@@ -60,29 +64,22 @@ class ProductService: ProductServiceType {
         cart = Cart(items: [], itemCount: 0, total: 0)
     }
     
-    func updateItemCart(product: Product) {
-        guard let index = itemExists(id:product.id) else {
-            let item = Item(id: product.id, product: product, units: 1)
-            cart.items.append(item)
-            return
-        }
-        cart.items[index].units += 1
-    }
     func itemExists(id:String) -> Int? {
         return cart.items.firstIndex(where: { $0.id == id })
     }
-    func addItemUnit( id: String) {
+    func addItemUnit(id: String) {
         guard let index = itemExists(id: id) else { return }
         cart.items[index].units += 1
+        cart.total += Double(cart.items[index].product.price) * Double(cart.items[index].units)
     }
     
     func removeItemUnit( id: String) {
         guard let index = itemExists(id: id) else { return }
         cart.items[index].units -= 1
+        cart.total -= Double(cart.items[index].product.price)
     }
     
     func uploadProduct(product: Product) {
-        //Generates number going up as time goes on, sets order of TODO's by how old they are.
         let number = Int(Date.timeIntervalSinceReferenceDate * 1000)
         
         let postRef = ref.child(String(number))

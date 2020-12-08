@@ -19,5 +19,5 @@ struct Cart {
     var items: [Item]
     var itemCount: Int
     var total: Double
-    static let `default`  = Self(items: [Item.default], itemCount: 0, total: 0)
+    static let `default`  = Self(items: [], itemCount: 0, total: 0)
 }

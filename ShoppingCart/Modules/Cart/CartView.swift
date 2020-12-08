@@ -11,36 +11,33 @@ import SwiftUI
 struct CartView: View {
     @ObservedObject
     var viewModel: CartViewModel
-    @State var cart:Cart?
+
     @ViewBuilder
     var body: some View {
-        if let cart = viewModel.cart, !cart.items.isEmpty {
-            
+        if viewModel.cart.items.isEmpty {
+            Text("No item Available.")
+                .font(.system(size: 24, weight: .bold, design: .rounded))
+                .foregroundColor(Color.black)
+                .shadow(radius: 10.0, x: 20, y: 10)
+        } else {
             Text("My Cart")
                 .font(.system(size: 18, weight: .bold, design: .rounded))
                 .foregroundColor(Color.black)
-                .shadow(radius: 10.0, x: 20, y: 10)
             List {
-                ForEach(cart.items) { item in
-                    CartItemsCard(item: item, viewModel: viewModel)
+                ForEach(viewModel.cart.items) { item in
+                    CartItemsView(viewModel: CartItemsViewModel(item: item, service: viewModel.service))
                         .buttonStyle(PlainButtonStyle())
                 }
                 .onDelete(perform: delete)
             }
             .background(Color.white.cornerRadius(25))
-            .shadow(radius: 10.0, x: 20, y: 10)
             .padding(5)
-            Text("SubTotal(\(cart.itemCount) items): \(cart.total)")
+            Text("SubTotal(\(viewModel.cart.itemCount) items): \(viewModel.cart.total)")
                 .font(.system(size: 18, weight: .bold, design: .rounded))
                 .foregroundColor(Color.black)
                 .shadow(radius: 10.0, x: 20, y: 10)
             buttonView
-        } else {
-            Text("No item Available.")
-                .font(.system(size: 24, weight: .bold, design: .rounded))
-                .foregroundColor(Color.black)
-                .shadow(radius: 10.0, x: 20, y: 10)
-        }
+        } 
     }
     
     var buttonView: some View {
@@ -57,7 +54,7 @@ struct CartView: View {
     }
     
     func delete(at offsets: IndexSet) {
-        cart?.items.remove(atOffsets: offsets)
+        viewModel.cart.items.remove(atOffsets: offsets)
     }
 }
 

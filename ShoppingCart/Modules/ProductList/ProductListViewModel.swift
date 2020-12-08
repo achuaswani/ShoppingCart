@@ -32,7 +32,7 @@ class ProductListViewModel: ObservableObject {
         }
     }
     
-    func addToCart(product: Product) {
-        service.addToCart(product: product)
+    func addProductToCart(_ product: Product) {
+        service.addProductToCart(product, units: 1)
     }
 }

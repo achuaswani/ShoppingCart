@@ -23,11 +23,11 @@ class MockProductService: ProductServiceType {
         return cart.itemCount
     }
     
-    func addToCart(product: Product) {
-        cart.itemCount += 1
+    func addProductToCart(_ product: Product, units: Int) {
+        cart.itemCount += units
         cart.total += product.price
-        updateItemCart(product: product)
-        
+        let item = Item(id: "1", product: product, units: 1)
+        cart.items.append(item)
     }
     
     func cartItems() -> Cart {
@@ -36,11 +36,6 @@ class MockProductService: ProductServiceType {
     
     func checkout() {
         cart = Cart(items: [], itemCount: 0, total: 0)
-    }
-    
-    func updateItemCart(product: Product) {
-        let item = Item(id: "1", product: product, units: 1)
-        cart.items.append(item)
     }
     
     func itemExists(id:String) -> Int? {

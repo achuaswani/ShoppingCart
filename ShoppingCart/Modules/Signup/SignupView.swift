@@ -47,7 +47,7 @@ struct SignupView: View {
             
             if showErrorMessage {
                 Text(errorMessage)
-                    .font(.system(size: 12, weight: .light, design: .rounded))
+                    .font(.system(size: 14, weight: .bold, design: .rounded))
                     .foregroundColor(Color.red)
                     .opacity(0.8)
                     .lineLimit(2)

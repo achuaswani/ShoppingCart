@@ -44,7 +44,7 @@ struct ProductCard: View {
                     .background(Color("cardBg"))
                     .clipShape(CustomCorner(corners: [.topLeft,.bottomRight], size: 15))
                     .onTapGesture {
-                        viewModel.addToCart(product: product)
+                        viewModel.addProductToCart(product)
                     }
                 }
             }

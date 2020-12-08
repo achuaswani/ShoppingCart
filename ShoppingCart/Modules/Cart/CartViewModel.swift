@@ -9,9 +9,9 @@
 import SwiftUI
 
 class CartViewModel: ObservableObject {
-    var cart: Cart?
-    private var service: ProductServiceType
-
+    @Published var cart: Cart = Cart.default
+    var service: ProductServiceType
+    
     init(service: ProductServiceType) {
         self.service = service
         self.cartItems()
@@ -21,11 +21,4 @@ class CartViewModel: ObservableObject {
         cart = service.cartItems()
     }
     
-    func addItemUnit(id: String) {
-        service.addItemUnit(id: id)
-    }
-    
-    func removeItemUnit( id: String) {
-        service.removeItemUnit(id: id)
-    }
 }

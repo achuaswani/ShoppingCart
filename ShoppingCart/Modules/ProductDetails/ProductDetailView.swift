@@ -91,18 +91,17 @@ struct ProductDetailView: View {
                 .padding(.all, 15)
             VStack {
                 HStack(spacing: 50) {
-                    Button(action: addItemUnit) {
+                    Button(action: viewModel.addItemUnit) {
                         
                         Image(systemName: "plus")
                             .buttonStyle(AddButton())
                     }
                     
-                    //Text("\(item.units)")
-                    Text("1")
+                    Text(String(viewModel.itemUnit))
                         .font(.system(size: 24, weight: .bold, design: .rounded))
                         .fontWeight(.bold)
                     
-                    Button(action: removeItemUnit) {
+                    Button(action: viewModel.removeItemUnit) {
                         
                         Image(systemName: "minus")
                             .buttonStyle(AddButton())
@@ -124,31 +123,14 @@ struct ProductDetailView: View {
     var buttonView: some View {
         VStack {
             HStack {
-                Text("Approximate  price ")
-                    .font(.system(size: 24, weight: .light, design: .rounded))
-                Text("$-.--")
+                Text(viewModel.approximatePrice)
                     .font(.system(size: 24, weight: .bold, design: .rounded))
             }
-            Button(action: addToCart) {
+            Button(action: viewModel.addProductToCart) {
                 Text("Add to cart")
             }.padding(.top, 50)
             .buttonStyle(PrimaryButton())
         }
-    }
-    
-    func addToCart() {
-        viewModel.addToCart(product: viewModel.product)
-    }
-    
-    func addItemUnit() {
-//        viewModel.product.units += 1
-//        viewModel.addItemUnit(id: viewModel.product.id)
-    }
-    func removeItemUnit() {
-//        if item.units > 1{
-//            item.units -= 1
-//            viewModel.removeItemUnit(id: item.id)
-//        }
     }
     
 }

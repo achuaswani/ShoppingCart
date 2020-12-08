@@ -19,7 +19,7 @@ class FirebaseSession: ObservableObject {
     func listen() {
         _ = Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
-                self.user = User(uid: user.uid, displayName: user.displayName, email: user.email)
+                self.user = User(uid: user.uid, email: user.email, displayName: user.displayName)
                 self.isLoggedIn = true
                 Crashlytics.crashlytics().setUserID(user.uid)
             } else {

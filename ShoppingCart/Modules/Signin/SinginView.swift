@@ -20,14 +20,18 @@ struct SigninView: View {
     var body: some View {
         NavigationView {
             VStack {
-              header
-              textFieldSection
-              if showErrorMessage {
-                  Text(errorMessage)
-              }
-              buttonView
-              registerAccount
-              Spacer()
+                header
+                textFieldSection
+                if showErrorMessage {
+                    Text(errorMessage)
+                        .font(.system(size: 14, weight: .bold, design: .rounded))
+                        .foregroundColor(.red)
+                }
+                Spacer()
+                buttonView
+                Spacer()
+                registerAccount
+                Spacer()
             } .padding(.top, 0)
             .background(
             LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
@@ -53,9 +57,9 @@ private extension SigninView {
                 .clipShape(Circle())
                 .overlay(Circle().stroke(Color.white, lineWidth: 4))
                 .shadow(radius: 10.0, x: 20, y: 10)
-            
+            Spacer()
             Text("Login to Tokenz")
-            .font(.largeTitle)
+                .font(.system(size: 42, weight: .bold, design: .rounded))
             .foregroundColor(Color.black)
             .shadow(radius: 10.0, x: 20, y: 10)
         }
@@ -63,25 +67,26 @@ private extension SigninView {
     
     var textFieldSection: some View {
         VStack(alignment: .leading, spacing: 15) {
-          
-          TextField("Email", text: self.$email)
-            .padding()
-            .foregroundColor(Color.black)
-            .background(Color.normalTextField)
-            .cornerRadius(20.0)
-                        
-          SecureField("Password", text: self.$password)
-            .padding()
-            .foregroundColor(Color.black)
-            .background(Color.normalTextField)
-            .cornerRadius(20.0)
+            Spacer()
+            TextField("Email", text: self.$email)
+              .padding()
+              .foregroundColor(Color.black)
+              .background(Color.normalTextField)
+              .cornerRadius(20.0)
+            SecureField("Password", text: self.$password)
+              .padding()
+              .foregroundColor(Color.black)
+              .background(Color.normalTextField)
+              .cornerRadius(20.0)
         }.padding([.leading, .trailing], 27.5)
     }
     
     var buttonView: some View {
         VStack {
+            Spacer()
             Button(action: signin) {
                 Text("Sign In")
+                    .font(.system(size: 24, weight: .bold, design: .rounded))
                     .buttonStyle(PrimaryButton())
                     .font(.headline)
                     .foregroundColor(.white)
@@ -91,14 +96,17 @@ private extension SigninView {
                     .cornerRadius(15.0)
                     .shadow(radius: 10.0, x: 5, y: 5)
             }.padding(.top, 50)
+            Spacer()
         }
     }
     
     var registerAccount: some View {
         HStack(spacing: 0) {
             Text("Don't have an account? ")
+                .font(.system(size: 18, weight: .bold, design: .rounded))
             NavigationLink(destination: SignupView()) {
                 Text("Sign Up")
+                    .font(.system(size: 18, weight: .bold, design: .rounded))
                     .foregroundColor(.black)
             }
         }.padding(.top, 50)

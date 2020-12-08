@@ -48,3 +48,7 @@
 "toast.message.success.title" = "Saved!";
 "toast.message.failure.title" = "Error!";
 
+// MARK: - Product Details
+"product.details.price.title" = "$";
+"product.details.approximate.price.title" = "Approximate  price $";
+
