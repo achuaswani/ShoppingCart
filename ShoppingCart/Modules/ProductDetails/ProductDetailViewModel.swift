@@ -9,14 +9,14 @@
 import Foundation
 
 class ProductDetailViewModel: ObservableObject {
-    var product: Product
     var service: ProductServiceType
     var productTypeArray = ["Blue", "Red", "White", "Yellow"]
     var priceTitle =  "product.details.approximate.price.title".localized()
 
     @Published var itemUnit = 0
     @Published var approximatePrice: String = ""
-    
+    @Published var product: Product
+
     var price: Double {
         return Double(product.price) * Double(itemUnit)
     }
@@ -41,5 +41,8 @@ class ProductDetailViewModel: ObservableObject {
         }
         approximatePrice = "\(priceTitle)\(price)"
     }
-
+    
+    func updatedSelection(_ item: String) {
+        product.selectedType = item
+    }
 }

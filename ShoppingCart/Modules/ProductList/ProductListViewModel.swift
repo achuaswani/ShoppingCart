@@ -27,8 +27,8 @@ class ProductListViewModel: ObservableObject {
     }
     
     func getCategories() {
-        for product in products where !categories.contains(product.category_name) {
-            categories.append(product.category_name)
+        for product in products where !categories.contains(product.categoryName) {
+            categories.append(product.categoryName)
         }
     }
     

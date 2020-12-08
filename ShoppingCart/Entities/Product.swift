@@ -15,18 +15,22 @@ struct Product: Codable, Identifiable {
     var id: String
     var name: String
     var price: Double
-    var image_url: String
+    var imageURL: String
     var description: String
-    var category_name : String
+    var categoryName : String
     var images: [String]
-    //var isAvailable: Bool
+    var productType: [String]
+    var selectedType: String
+    var isAvailable: Bool
     static let `default`  = Self(id: "String",
-                                 name: "Name ",
+                                 name: "Name",
                                  price: 1.2,
-                                 image_url: "String",
+                                 imageURL: "String",
                                  description: "String",
-                                 category_name: "Category",
-                                 images: ["String"]
-                                 //isAvailable: false
+                                 categoryName: "Category",
+                                 images: ["String"],
+                                 productType: ["Color"],
+                                 selectedType: "White",
+                                 isAvailable: true
                                 )
 }

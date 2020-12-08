@@ -52,7 +52,7 @@ struct CartItemsView: View {
     
     func getImageURL() -> AnyView {
         return  AnyView(AsyncImage(
-            urlString: viewModel.item.product.image_url,
+            urlString: viewModel.item.product.imageURL,
             placeholder: Image("noImage"),
             cache: self.cache,
             configuration: { $0.resizable() }

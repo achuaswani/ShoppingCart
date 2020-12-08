@@ -56,7 +56,7 @@ struct ProductCard: View {
     func getImageURL() -> AnyView {
         return  AnyView(
             AsyncImage(
-                       urlString: product.image_url,
+                       urlString: product.imageURL,
                        placeholder: Image("noImage"),
                        cache: self.cache,
                        configuration: { $0.resizable() }
@@ -72,7 +72,7 @@ struct ProductCard: View {
             Text(product.name)
                 .font(.system(size: 24, weight: .bold, design: .rounded))
                 .foregroundColor(.black)
-            Text(product.category_name)
+            Text(product.categoryName)
                 .font(.system(size: 16, weight: .bold, design: .rounded))
                 .foregroundColor(Color.black)
                 .multilineTextAlignment(.trailing)

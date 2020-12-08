@@ -37,7 +37,7 @@ struct ProductDetailView: View {
     
     func getImageURL() -> AnyView {
         return  AnyView(AsyncImage(
-            urlString: viewModel.product.image_url,
+            urlString: viewModel.product.imageURL,
                        placeholder: Image("noImage"),
                        cache: self.cache,
                        configuration: { $0.resizable() }
@@ -57,7 +57,7 @@ struct ProductDetailView: View {
             .foregroundColor(Color.black)
             .multilineTextAlignment(.leading)
                
-        Text(viewModel.product.category_name)
+        Text(viewModel.product.categoryName)
             .font(.system(size: 16, weight: .light, design: .rounded))
             .foregroundColor(Color.black)
             .multilineTextAlignment(.leading)
@@ -71,11 +71,25 @@ struct ProductDetailView: View {
                 .position(x: 70, y: 10)
                 .padding(.all, 5)
             ForEach(viewModel.productTypeArray, id: \.self) { item in
+                HStack {
+                    if viewModel.product.selectedType == item {
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundColor(.blue)
+                            .padding(.all)
+                    } else {
+                        Image(systemName: "checkmark.circle")
+                            .foregroundColor(.blue)
+                            .padding(.all)
+                    }
                     Text(item)
                         .font(.system(size: 16, weight: .light, design: .rounded))
                         .multilineTextAlignment(.leading)
                         .position(x: 50, y: 10)
                         .padding(.all, 5)
+                }
+                .onTapGesture {
+                    viewModel.updatedSelection(item)
+                }
                 Divider()
             }
             weightCardView
