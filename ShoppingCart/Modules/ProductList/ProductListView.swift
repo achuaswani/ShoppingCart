@@ -64,7 +64,6 @@ struct ProductListView: View {
                 productList
             }
             .background(Color("BG"))
-            .padding(.vertical)
             .navigationBarTitle("Product List", displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 self.session.signout()
@@ -89,7 +88,7 @@ struct ProductListView: View {
             }
             .contentShape(Rectangle())
         }
-        .padding(.horizontal,22)
+        .padding(.horizontal, 22)
     }
     struct MenuButton : View {
         

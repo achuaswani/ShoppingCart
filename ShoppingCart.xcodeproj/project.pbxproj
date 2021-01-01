@@ -16,7 +16,6 @@
 		5B19F6D824F321DC00CE483D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B19F6D724F321DC00CE483D /* WebViewController.swift */; };
 		5B19F6DA24F3222B00CE483D /* Window+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B19F6D924F3222B00CE483D /* Window+Extension.swift */; };
 		5B19F6DC24F3223500CE483D /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B19F6DB24F3223500CE483D /* String+Validation.swift */; };
-		5B19F6DE24F3224F00CE483D /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B19F6DD24F3224F00CE483D /* View+Extension.swift */; };
 		5B19F6E424F3226F00CE483D /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B19F6E124F3226F00CE483D /* CloseButton.swift */; };
 		5B19F6E924F32E8100CE483D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B19F6E824F32E8100CE483D /* Toast.swift */; };
 		5B1D72E924CCA22200429AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D72E824CCA22200429AD1 /* AppDelegate.swift */; };
@@ -53,6 +52,7 @@
 		5B98F2A8257F0E2B0084BF1A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B98F2A7257F0E2B0084BF1A /* GoogleService-Info.plist */; };
 		5B98F2CC257F4F9D0084BF1A /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98F2CB257F4F9D0084BF1A /* ProductDetailViewModel.swift */; };
 		5B9990C7257F96CF00470B4C /* CartItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9990C6257F96CF00470B4C /* CartItemsViewModel.swift */; };
+		5B9A386B259F994800E020F9 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A386A259F994800E020F9 /* View+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +85,6 @@
 		5B19F6D724F321DC00CE483D /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		5B19F6D924F3222B00CE483D /* Window+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Window+Extension.swift"; sourceTree = "<group>"; };
 		5B19F6DB24F3223500CE483D /* String+Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
-		5B19F6DD24F3224F00CE483D /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "View+Extension.swift"; path = "../../../GiftHunteriOS/GiftHunteriOS/Utilities/View+Extension.swift"; sourceTree = "<group>"; };
 		5B19F6E124F3226F00CE483D /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		5B19F6E824F32E8100CE483D /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		5B1D72E524CCA22200429AD1 /* ShoppingCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +126,7 @@
 		5B98F2A7257F0E2B0084BF1A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B98F2CB257F4F9D0084BF1A /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		5B9990C6257F96CF00470B4C /* CartItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemsViewModel.swift; sourceTree = "<group>"; };
+		5B9A386A259F994800E020F9 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		6F22DD4F745F2CA2CC4CAB71 /* Pods-ShoppingCartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCartTests.release.xcconfig"; path = "Target Support Files/Pods-ShoppingCartTests/Pods-ShoppingCartTests.release.xcconfig"; sourceTree = "<group>"; };
 		A50AA57B72BBF34470DEBC4F /* Pods-ShoppingCart-ShoppingCartUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCart-ShoppingCartUITests.release.xcconfig"; path = "Target Support Files/Pods-ShoppingCart-ShoppingCartUITests/Pods-ShoppingCart-ShoppingCartUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A86E87918E431A04420B7F80 /* Pods-ShoppingCart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCart.debug.xcconfig"; path = "Target Support Files/Pods-ShoppingCart/Pods-ShoppingCart.debug.xcconfig"; sourceTree = "<group>"; };
@@ -333,8 +333,8 @@
 			children = (
 				5B1D733F24CCFDE900429AD1 /* Localizations.swift */,
 				5B19F6D924F3222B00CE483D /* Window+Extension.swift */,
-				5B19F6DD24F3224F00CE483D /* View+Extension.swift */,
 				5B19F6DB24F3223500CE483D /* String+Validation.swift */,
+				5B9A386A259F994800E020F9 /* View+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -659,7 +659,6 @@
 				5B98F2CC257F4F9D0084BF1A /* ProductDetailViewModel.swift in Sources */,
 				5B1D735924D0CA9700429AD1 /* ImageLoader.swift in Sources */,
 				5B1D734B24CD1EFD00429AD1 /* RootView.swift in Sources */,
-				5B19F6DE24F3224F00CE483D /* View+Extension.swift in Sources */,
 				5B1D735624CFC9BC00429AD1 /* MockDatabaseReference.swift in Sources */,
 				5B1D72E924CCA22200429AD1 /* AppDelegate.swift in Sources */,
 				5B1D735B24D0CAF000429AD1 /* AsyncImage.swift in Sources */,
@@ -668,6 +667,7 @@
 				5B1D733224CCEA7100429AD1 /* ProductListViewModel.swift in Sources */,
 				5B1D734424CCFEAD00429AD1 /* SignupView.swift in Sources */,
 				5B1D731E24CCA38900429AD1 /* Cart.swift in Sources */,
+				5B9A386B259F994800E020F9 /* View+Extension.swift in Sources */,
 				5B1D734024CCFDE900429AD1 /* Localizations.swift in Sources */,
 				5B19F6DC24F3223500CE483D /* String+Validation.swift in Sources */,
 				5B519D4824FADCE900E95386 /* EnvironmentValues+ImageCache.swift in Sources */,

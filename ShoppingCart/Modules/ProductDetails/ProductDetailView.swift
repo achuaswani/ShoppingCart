@@ -76,15 +76,9 @@ struct ProductDetailView: View {
                 .padding(.all, 5)
             ForEach(viewModel.productTypeArray, id: \.self) { item in
                 HStack {
-                    if viewModel.product.selectedType == item {
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(.blue)
-                            .padding(.all)
-                    } else {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.blue)
-                            .padding(.all)
-                    }
+                    Button(action: { viewModel.product.selectedType = item}) {
+                               Image(systemName: viewModel.product.selectedType == item ? "checkmark.circle.fill" : "circle.fill")
+                           }
                     Text(item)
                         .font(.system(size: 16, weight: .light, design: .rounded))
                         .multilineTextAlignment(.leading)
@@ -96,11 +90,11 @@ struct ProductDetailView: View {
                 }
                 Divider()
             }
-            weightCardView
+            unitsCardView
         }
     }
     
-    var weightCardView: some View {
+    var unitsCardView: some View {
         VStack {
             Text("Units")
                 .font(.system(size: 24, weight: .bold, design: .rounded))
