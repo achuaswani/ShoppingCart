@@ -58,7 +58,7 @@ private extension SigninView {
                 .overlay(Circle().stroke(Color.white, lineWidth: 4))
                 .shadow(radius: 10.0, x: 20, y: 10)
             Spacer()
-            Text("Login to Tokenz")
+            Text("login.button.login.title".localized())
                 .font(.system(size: 42, weight: .bold, design: .rounded))
             .foregroundColor(Color.black)
             .shadow(radius: 10.0, x: 20, y: 10)
